@@ -1,11 +1,20 @@
 import express from 'express';
-const server = express();
+const servidor = express();
 
-server.get('/helloworld', (req, resp) => {
-    resp.send("Olá, essa é minha primeira API. Estou muito feliz =)");
+servidor.get('/mensagem/boasvindas', (req, resp) => {
+    resp.send("Olá, seja bem vindo!");
+});
+
+servidor.get('/mensagem/ocupado', (req, resp) => {
+    resp.send("Estou ocupado.");
+});
+
+servidor.get('/mensagem/ocupado/recado', (req, resp) => {
+    resp.send("Estou ocupado, deixe uma mensagem no email: arthurherculano155@gmail.com")
+});
+
+servidor.get('/v2/mensagem/boasvindas', (req, resp) => {
+    resp.send("Você chegou até aqui! Parabéns!!!")
 })
 
-server.listen(3000, 
-    () => {
-        console.log("Porta 3000 funcionando e API subiu com sucesso!");
-});
+servidor.listen(3000, () => console.log("Servidor rodando na porta 3000"));
